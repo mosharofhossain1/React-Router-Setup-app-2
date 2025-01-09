@@ -1,12 +1,16 @@
 
+import { Outlet } from 'react-router-dom'
 import './App.css'
+import Nav from './components/Nav/Nav'
 
 function App() {
 
 
   return (
     <div>
-      <h1>React router er loading setup</h1>
+
+      <Nav></Nav>
+      <Outlet></Outlet>
     </div>
   )
 }

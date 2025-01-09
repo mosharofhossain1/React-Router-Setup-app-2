@@ -3,8 +3,44 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Home from './components/Home/Home.jsx'
+import About from './components/About/About.jsx'
+import Bloge from './components/Bloge/Bloge.jsx'
+import Products from './components/Products/Products.jsx'
+import Contact from './components/Contact/Contact.jsx'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App></App>,
+    children: [
+      {
+        path: '/home',
+        element: <Home></Home>
+      },
+      {
+        path: '/about',
+        element: <About></About>
+      },
+      {
+        path: '/bloge',
+        element: <Bloge></Bloge>
+      },
+      {
+        path: '/products',
+        element: <Products></Products>
+      },
+      {
+        path: '/contact',
+        element: <Contact></Contact>
+      }
+    ]
+  }
+])
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <RouterProvider router={router}></RouterProvider>
   </StrictMode>,
 )
